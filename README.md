@@ -1,4 +1,4 @@
-[简体中文版本](README.zh-CN.md)
+[简体中文版本](README.zh.md)
 # OpenClaw Control Center
 OpenClaw is powerful, but currently not user-friendly enough for ordinary users:
 
@@ -64,5 +64,6 @@ Please read first:
 - `docs/roadmap/`
 
 ## License
+
 
 Apache-2.0
