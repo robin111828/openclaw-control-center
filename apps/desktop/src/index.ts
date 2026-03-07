@@ -20,6 +20,12 @@ import {
   ConnectorsSummary,
   ConnectorsViewModel,
 } from "./app/connectors";
+import {
+  createModesSummary,
+  createModesViewModel,
+  ModesSummary,
+  ModesViewModel,
+} from "./app/modes";
 
 export interface DesktopAppShellState {
   title: string;
@@ -41,6 +47,10 @@ export interface DesktopAppBootstrapResult {
   connectors: {
     viewModel: ConnectorsViewModel;
     summary: ConnectorsSummary;
+  };
+  modes: {
+    viewModel: ModesViewModel;
+    summary: ModesSummary;
   };
   appState: DesktopAppShellState;
 }
@@ -64,6 +74,8 @@ export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
   const setupSummary = createSetupSummary();
   const connectorsViewModel = createConnectorsViewModel();
   const connectorsSummary = createConnectorsSummary();
+  const modesViewModel = createModesViewModel();
+  const modesSummary = createModesSummary();
   const appState = createDesktopAppShellState();
 
   return {
@@ -79,6 +91,10 @@ export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
     connectors: {
       viewModel: connectorsViewModel,
       summary: connectorsSummary,
+    },
+    modes: {
+      viewModel: modesViewModel,
+      summary: modesSummary,
     },
     appState,
   };
