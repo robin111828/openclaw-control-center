@@ -1,6 +1,8 @@
-import { createDesktopShellLayout } from "./app/shell/shell-layout";
-import { createDesktopNavigationItems } from "./app/shell/shell-navigation";
-import { createDesktopShellState } from "./app/shell/shell-state";
+import {
+  createDesktopNavigationItems,
+  createDesktopShellLayout,
+  createDesktopShellState,
+} from "./app/shell";
 
 export interface DesktopAppShellState {
   title: string;
