@@ -2,6 +2,12 @@ import {
   createDesktopShellViewModel,
   DesktopShellViewModel,
 } from "./app/shell";
+import {
+  createDashboardSummary,
+  createDashboardViewModel,
+  DashboardSummary,
+  DashboardViewModel,
+} from "./app/dashboard";
 
 export interface DesktopAppShellState {
   title: string;
@@ -12,6 +18,10 @@ export interface DesktopAppShellState {
 
 export interface DesktopAppBootstrapResult {
   viewModel: DesktopShellViewModel;
+  dashboard: {
+    viewModel: DashboardViewModel;
+    summary: DashboardSummary;
+  };
   appState: DesktopAppShellState;
 }
 
@@ -28,10 +38,16 @@ export function createDesktopAppShellState(): DesktopAppShellState {
 
 export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
   const viewModel = createDesktopShellViewModel();
+  const dashboardViewModel = createDashboardViewModel();
+  const dashboardSummary = createDashboardSummary();
   const appState = createDesktopAppShellState();
 
   return {
     viewModel,
+    dashboard: {
+      viewModel: dashboardViewModel,
+      summary: dashboardSummary,
+    },
     appState,
   };
 }
