@@ -1,4 +1,5 @@
 import { detectOpenClawInstallationFromEnv } from "./detect-installation";
+import { findOpenClawConfigFromEnv } from "./find-config";
 import {
   OpenClawConfigLocation,
   OpenClawInstallationStatus,
@@ -20,14 +21,13 @@ export function detectOpenClawInstallation(): OpenClawInstallationStatus {
 /**
  * Find the likely OpenClaw configuration path.
  *
- * This is currently a placeholder implementation.
+ * Current implementation:
+ * - delegates to a minimal environment-based config lookup
+ *
  * Future versions should detect real config locations by platform.
  */
 export function findOpenClawConfig(): OpenClawConfigLocation {
-  return {
-    path: null,
-    exists: false,
-  };
+  return findOpenClawConfigFromEnv();
 }
 
 /**
@@ -46,7 +46,9 @@ export function getOpenClawStatus(): OpenClawStatus {
     message:
       installationStatus === "installed"
         ? "OpenClaw appears to be installed."
-        : "Bridge status is currently using a placeholder implementation.",
+        : config.exists
+          ? "OpenClaw config path was discovered."
+          : "Bridge status is currently using a placeholder implementation.",
   };
 }
 
@@ -60,3 +62,8 @@ export {
   detectOpenClawInstallationFromEnv,
   type BridgeEnvironmentLike,
 } from "./detect-installation";
+
+export {
+  findOpenClawConfigFromEnv,
+  type BridgeConfigEnvironmentLike,
+} from "./find-config";
