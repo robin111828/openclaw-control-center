@@ -1,3 +1,4 @@
+import { detectOpenClawInstallationFromEnv } from "./detect-installation";
 import {
   OpenClawConfigLocation,
   OpenClawInstallationStatus,
@@ -7,11 +8,13 @@ import {
 /**
  * Detect whether OpenClaw appears to be installed.
  *
- * This is currently a placeholder implementation.
- * Future versions should perform real local environment checks.
+ * Current implementation:
+ * - delegates to a minimal environment-based detector
+ *
+ * Future versions should extend this with real local checks.
  */
 export function detectOpenClawInstallation(): OpenClawInstallationStatus {
-  return "unknown";
+  return detectOpenClawInstallationFromEnv();
 }
 
 /**
@@ -41,7 +44,9 @@ export function getOpenClawStatus(): OpenClawStatus {
     installationStatus,
     config,
     message:
-      "Bridge status is currently using a placeholder implementation.",
+      installationStatus === "installed"
+        ? "OpenClaw appears to be installed."
+        : "Bridge status is currently using a placeholder implementation.",
   };
 }
 
@@ -50,3 +55,8 @@ export type {
   OpenClawInstallationStatus,
   OpenClawStatus,
 } from "./types";
+
+export {
+  detectOpenClawInstallationFromEnv,
+  type BridgeEnvironmentLike,
+} from "./detect-installation";
