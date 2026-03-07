@@ -1,7 +1,7 @@
 import {
   createDesktopShellViewModel,
   DesktopShellViewModel,
-} from "./app/shell/shell-view-model";
+} from "./app/shell";
 
 export interface DesktopAppShellState {
   title: string;
