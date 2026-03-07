@@ -1,5 +1,6 @@
 import { detectOpenClawInstallationFromEnv } from "./detect-installation";
 import { findOpenClawConfigFromEnv } from "./find-config";
+import { getOpenClawStatusFromEnv } from "./status";
 import {
   OpenClawConfigLocation,
   OpenClawInstallationStatus,
@@ -33,23 +34,11 @@ export function findOpenClawConfig(): OpenClawConfigLocation {
 /**
  * Return a normalized OpenClaw status object for upper layers.
  *
- * This allows future UI layers to consume a stable structure
- * even before the real bridge implementation is complete.
+ * Current implementation:
+ * - delegates to the dedicated status composition module
  */
 export function getOpenClawStatus(): OpenClawStatus {
-  const installationStatus = detectOpenClawInstallation();
-  const config = findOpenClawConfig();
-
-  return {
-    installationStatus,
-    config,
-    message:
-      installationStatus === "installed"
-        ? "OpenClaw appears to be installed."
-        : config.exists
-          ? "OpenClaw config path was discovered."
-          : "Bridge status is currently using a placeholder implementation.",
-  };
+  return getOpenClawStatusFromEnv();
 }
 
 export type {
@@ -67,3 +56,8 @@ export {
   findOpenClawConfigFromEnv,
   type BridgeConfigEnvironmentLike,
 } from "./find-config";
+
+export {
+  getOpenClawStatusFromEnv,
+  type BridgeStatusEnvironmentLike,
+} from "./status";
