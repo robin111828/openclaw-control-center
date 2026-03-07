@@ -8,6 +8,7 @@ export interface DesktopAppShellState {
   title: string;
   statusMessage: string;
   navigationItems: string[];
+  openClawStatus: ReturnType<typeof createDesktopShellState>["openClawStatus"];
 }
 
 export interface DesktopAppBootstrapResult {
@@ -24,6 +25,7 @@ export function createDesktopAppShellState(): DesktopAppShellState {
     title: shellState.appTitle,
     statusMessage: shellState.statusMessage,
     navigationItems: shellState.navigationItems,
+    openClawStatus: shellState.openClawStatus,
   };
 }
 
