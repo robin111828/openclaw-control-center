@@ -1,69 +1,99 @@
-[简体中文版本](README.zh.md)
 # OpenClaw Control Center
-OpenClaw is powerful, but currently not user-friendly enough for ordinary users:
 
-- High threshold for CLI configuration
-- Complex integration with Feishu / WeCom / QQ
-- Lack of dedicated control entry on mobile devices
-- Opaque status of models / skills / permissions
-- Difficult troubleshooting
+[中文说明](./README.zh.md)
 
-OpenClaw Control Center aims to fill this layer of "operating system-level control panel".
+A cross-device control hub for OpenClaw.
 
-## Goals
+OpenClaw Control Center is an open-source project designed to make OpenClaw easier to install, configure, connect, and use across desktop and mobile devices.
 
-- Zero-CLI first run
-- Connector setup wizard
-- Phone as remote control
-- Mode-based workflow switching
-- Visible health and logs
+It focuses on turning complex setup and fragmented connector workflows into a guided, visual, and contributor-friendly experience.
 
-## MVP
+---
 
-- One-click OpenClaw setup
-- Visual settings panel
-- At least one production-ready connector
-- Mobile pairing
-- Mode switcher
-- Basic diagnostics
+## Why this project
+
+OpenClaw is powerful, but for many users the real challenge is not capability — it is usability.
+
+Common friction points include:
+
+- CLI-first onboarding
+- connector setup that feels too technical
+- weak mobile control experience
+- invisible configuration and permission state
+- hard-to-debug failures
+- fragmented cross-device workflows
+
+This project exists to solve that layer.
+
+Instead of building yet another chat entry point, OpenClaw Control Center aims to become a dedicated **control layer** for OpenClaw.
+
+---
+
+## What it aims to provide
+
+- one-click setup guidance
+- visual configuration management
+- guided connector onboarding
+- phone-as-remote-control workflow
+- mode-based switching for common use cases
+- visible health, logs, and diagnostics
+- an open architecture for connectors and templates
+
+---
+
+## Current status
+
+**Project stage:** early open-source foundation
+
+This repository is currently focused on:
+
+- defining product direction
+- establishing documentation and contribution structure
+- preparing the project scaffold
+- clarifying MVP boundaries
+- making the repository contributor-friendly from day one
+
+This is not yet a full implementation release.  
+It is the foundation for a serious open-source product.
+
+---
+
+## MVP direction
+
+The initial MVP is centered around six capabilities:
+
+1. desktop initialization wizard  
+2. OpenClaw installation and status detection  
+3. visual configuration editor  
+4. at least one guided connector onboarding flow  
+5. basic diagnostics and state visibility  
+6. initial mobile pairing path  
+
+---
+
+## Who this is for
+
+### Power users
+People already using OpenClaw who want easier setup, clearer status visibility, and smoother daily operation.
+
+### Builders and technical creators
+People who want to manage models, connectors, templates, and modes through a structured interface.
+
+### Open-source contributors
+Developers, designers, and writers who want to improve the OpenClaw ecosystem through code, docs, UX, templates, and connector work.
+
+---
 
 ## Repository structure
 
-- `apps/desktop` Desktop main console
-- `apps/mobile` Mobile / PWA
-- `packages/connector-sdk` Connector development SDK
-- `packages/openclaw-bridge` Communication layer with OpenClaw
-- `connectors/` Official and community connectors
-- `templates/` Mode templates
-- `docs/` PRD, architecture, contribution guidelines
-
-## Roadmap
-
-### v0.1
-- Project scaffold
-- Desktop MVP
-- Example connector
-- Basic diagnostics
-
-### v0.2
-- Mobile pairing
-- Multi-connector support
-- Template marketplace (basic)
-
-### v0.3
-- Team-oriented features
-- Remote device management
-
-## Contributing
-
-Issues, PRs, connectors, templates, and installation scripts are all welcome.
-
-Please read first:
-- `CONTRIBUTING.md`
-- `docs/connector-spec/`
-- `docs/roadmap/`
-
-## License
-
-
-Apache-2.0
+```text
+.
+├─ docs/
+│  ├─ prd/
+│  └─ roadmap/
+├─ README.md
+├─ README.zh.md
+├─ LICENSE
+├─ CONTRIBUTING.md
+├─ CODE_OF_CONDUCT.md
+└─ SECURITY.md
