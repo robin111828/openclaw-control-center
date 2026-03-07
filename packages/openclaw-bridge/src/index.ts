@@ -1,18 +1,8 @@
-export type OpenClawInstallationStatus =
-  | "installed"
-  | "not_found"
-  | "unknown";
-
-export interface OpenClawConfigLocation {
-  path: string | null;
-  exists: boolean;
-}
-
-export interface OpenClawStatus {
-  installationStatus: OpenClawInstallationStatus;
-  config: OpenClawConfigLocation;
-  message: string;
-}
+import {
+  OpenClawConfigLocation,
+  OpenClawInstallationStatus,
+  OpenClawStatus,
+} from "./types";
 
 /**
  * Detect whether OpenClaw appears to be installed.
@@ -54,3 +44,9 @@ export function getOpenClawStatus(): OpenClawStatus {
       "Bridge status is currently using a placeholder implementation.",
   };
 }
+
+export type {
+  OpenClawConfigLocation,
+  OpenClawInstallationStatus,
+  OpenClawStatus,
+} from "./types";
