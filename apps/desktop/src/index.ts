@@ -1,44 +1,37 @@
 import {
-  createDesktopNavigationItems,
-  createDesktopShellLayout,
-  createDesktopShellState,
-} from "./app/shell";
+  createDesktopShellViewModel,
+  DesktopShellViewModel,
+} from "./app/shell/shell-view-model";
 
 export interface DesktopAppShellState {
   title: string;
   statusMessage: string;
   navigationItems: string[];
-  openClawStatus: ReturnType<typeof createDesktopShellState>["openClawStatus"];
+  openClawStatus: DesktopShellViewModel["state"]["openClawStatus"];
 }
 
 export interface DesktopAppBootstrapResult {
-  shellState: ReturnType<typeof createDesktopShellState>;
-  shellLayout: ReturnType<typeof createDesktopShellLayout>;
-  navigation: ReturnType<typeof createDesktopNavigationItems>;
+  viewModel: DesktopShellViewModel;
   appState: DesktopAppShellState;
 }
 
 export function createDesktopAppShellState(): DesktopAppShellState {
-  const shellState = createDesktopShellState();
+  const viewModel = createDesktopShellViewModel();
 
   return {
-    title: shellState.appTitle,
-    statusMessage: shellState.statusMessage,
-    navigationItems: shellState.navigationItems,
-    openClawStatus: shellState.openClawStatus,
+    title: viewModel.state.appTitle,
+    statusMessage: viewModel.state.statusMessage,
+    navigationItems: viewModel.state.navigationItems,
+    openClawStatus: viewModel.state.openClawStatus,
   };
 }
 
 export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
-  const shellState = createDesktopShellState();
-  const shellLayout = createDesktopShellLayout();
-  const navigation = createDesktopNavigationItems();
+  const viewModel = createDesktopShellViewModel();
   const appState = createDesktopAppShellState();
 
   return {
-    shellState,
-    shellLayout,
-    navigation,
+    viewModel,
     appState,
   };
 }
