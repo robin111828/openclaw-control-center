@@ -1,9 +1,13 @@
-import { getOpenClawStatus } from "../../../../../packages/openclaw-bridge/src/index";
+import {
+  OpenClawStatus,
+  getOpenClawStatus,
+} from "../../../../../packages/openclaw-bridge/src/index";
 
 export interface DesktopShellState {
   appTitle: string;
   navigationItems: string[];
   statusMessage: string;
+  openClawStatus: OpenClawStatus;
 }
 
 export function createDesktopShellState(): DesktopShellState {
@@ -20,5 +24,6 @@ export function createDesktopShellState(): DesktopShellState {
       "Settings",
     ],
     statusMessage: bridgeStatus.message,
+    openClawStatus: bridgeStatus,
   };
 }
