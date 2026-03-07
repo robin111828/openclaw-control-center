@@ -1,0 +1,63 @@
+# Node / JavaScript / TypeScript
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Build outputs
+dist/
+build/
+out/
+coverage/
+.next/
+.nuxt/
+.vite/
+.turbo/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tauri / Electron common artifacts
+src-tauri/target/
+src-tauri/.cargo/
+*.rs.bk
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Package manager lock backups
+package-lock.json.bak
+pnpm-lock.yaml.bak
+yarn.lock.bak
+
+# Misc
+*.tsbuildinfo
