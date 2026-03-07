@@ -1,19 +1,40 @@
-import { getOpenClawStatus } from "../../../packages/openclaw-bridge/src/index";
+import { createDesktopShellLayout } from "./app/shell/shell-layout";
+import { createDesktopNavigationItems } from "./app/shell/shell-navigation";
+import { createDesktopShellState } from "./app/shell/shell-state";
 
 export interface DesktopAppShellState {
   title: string;
   statusMessage: string;
+  navigationItems: string[];
+}
+
+export interface DesktopAppBootstrapResult {
+  shellState: ReturnType<typeof createDesktopShellState>;
+  shellLayout: ReturnType<typeof createDesktopShellLayout>;
+  navigation: ReturnType<typeof createDesktopNavigationItems>;
+  appState: DesktopAppShellState;
 }
 
 export function createDesktopAppShellState(): DesktopAppShellState {
-  const bridgeStatus = getOpenClawStatus();
+  const shellState = createDesktopShellState();
 
   return {
-    title: "OpenClaw Control Center",
-    statusMessage: bridgeStatus.message,
+    title: shellState.appTitle,
+    statusMessage: shellState.statusMessage,
+    navigationItems: shellState.navigationItems,
   };
 }
 
-export function bootstrapDesktopApp(): DesktopAppShellState {
-  return createDesktopAppShellState();
+export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
+  const shellState = createDesktopShellState();
+  const shellLayout = createDesktopShellLayout();
+  const navigation = createDesktopNavigationItems();
+  const appState = createDesktopAppShellState();
+
+  return {
+    shellState,
+    shellLayout,
+    navigation,
+    appState,
+  };
 }
