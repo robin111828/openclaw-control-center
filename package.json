@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "echo \"Workspace dev command will be added soon.\"",
     "build": "echo \"Workspace build command will be added soon.\"",
-    "lint": "echo \"Workspace lint command will be added soon.\""
+    "lint": "echo \"Workspace lint command will be added soon.\"",
+    "test": "echo \"Workspace test command will be added soon.\""
   }
 }
