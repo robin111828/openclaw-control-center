@@ -1,0 +1,13 @@
+{
+  "name": "openclaw-control-center",
+  "version": "0.1.0-alpha",
+  "private": true,
+  "description": "A cross-device control hub for OpenClaw with guided setup, connector onboarding, mobile pairing, and visible diagnostics.",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev": "echo \"Workspace dev command will be added soon.\"",
+    "build": "echo \"Workspace build command will be added soon.\"",
+    "lint": "echo \"Workspace lint command will be added soon.\""
+  }
+}
