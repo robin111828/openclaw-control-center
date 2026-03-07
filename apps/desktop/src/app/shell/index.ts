@@ -12,3 +12,8 @@ export {
   createDesktopNavigationItems,
   type DesktopNavigationItem,
 } from "./shell-navigation";
+
+export {
+  createDesktopShellViewModel,
+  type DesktopShellViewModel,
+} from "./shell-view-model";
