@@ -1,68 +1,99 @@
-[English version](README.md)
 # OpenClaw Control Center
-OpenClaw 很强，但目前对普通用户并不够顺手：
 
-- CLI 配置门槛高
-- 飞书 / 企微 / QQ 接入复杂
-- 手机端缺少专门控制入口
-- 模型 / 技能 / 权限状态不透明
-- 故障排查困难
+[English README](./README.md)
 
-OpenClaw Control Center 旨在补上这一层“操作系统级别的控制面板”。
+一个面向 OpenClaw 的跨端控制中枢。
 
-## Goals
+OpenClaw Control Center 是一个开源项目，目标是让 OpenClaw 在桌面端与移动端上的安装、配置、连接器接入和日常使用，变得更简单、更直观、更容易扩展。
 
-- Zero-CLI first run
-- Connector setup wizard
-- Phone as remote control
-- Mode-based workflow switching
-- Visible health and logs
+它关注的不是再做一个聊天入口，而是把复杂的初始化流程和割裂的连接器操作，整理成一套可引导、可视化、对社区友好的使用体验。
 
-## MVP
+---
 
-- One-click OpenClaw setup
-- Visual settings panel
-- At least one production-ready connector
-- Mobile pairing
-- Mode switcher
-- Basic diagnostics
+## 为什么要做这个项目
 
-## Repository structure
+OpenClaw 的能力并不弱，真正让很多人卡住的，往往不是“不会用 AI”，而是“不会把它顺手地跑起来”。
 
-- `apps/desktop` 桌面端主控台
-- `apps/mobile` 手机端 / PWA
-- `packages/connector-sdk` 连接器开发 SDK
-- `packages/openclaw-bridge` 与 OpenClaw 通信层
-- `connectors/` 官方和社区连接器
-- `templates/` 模式模板
-- `docs/` PRD、架构、贡献指南
+常见阻力包括：
 
-## Roadmap
+- CLI 优先，初始化门槛高
+- 连接器接入过程偏技术化
+- 手机端更像消息入口，不像控制入口
+- 当前配置、权限、状态不可见
+- 出问题时很难快速定位原因
+- 桌面端、手机端、通道端体验割裂
 
-### v0.1
-- Project scaffold
-- Desktop MVP
-- Example connector
-- Basic diagnostics
+这个项目要解决的，就是这一层问题。
 
-### v0.2
-- Mobile pairing
-- Multi-connector support
-- Template marketplace (basic)
+OpenClaw Control Center 的目标，不是做“又一个聊天窗口”，而是成为 OpenClaw 的专用 **控制层**。
 
-### v0.3
-- Team-oriented features
-- Remote device management
+---
 
-## Contributing
+## 这个项目想提供什么
 
-欢迎提交 issue、PR、连接器、模板与安装脚本。
+- 一键式初始化引导
+- 可视化配置管理
+- 连接器接入向导
+- 手机作为遥控器的使用路径
+- 面向常见场景的模式切换
+- 可见的健康状态、日志与诊断能力
+- 对连接器与模板友好的开放架构
 
-请先阅读：
-- `CONTRIBUTING.md`
-- `docs/connector-spec/`
-- `docs/roadmap/`
+---
 
-## License
+## 当前状态
 
-Apache-2.0
+**项目阶段：开源基础搭建期**
+
+当前这个仓库主要聚焦在：
+
+- 明确产品方向
+- 建立文档与贡献结构
+- 准备项目脚手架
+- 收敛 MVP 边界
+- 从第一天开始把仓库做得对贡献者友好
+
+这还不是一个完整功能的实现版本。  
+它是一个严肃开源产品的起点。
+
+---
+
+## MVP 方向
+
+第一阶段 MVP 聚焦在 6 项能力：
+
+1. 桌面端初始化向导  
+2. OpenClaw 安装与状态检测  
+3. 可视化配置编辑器  
+4. 至少一个可引导的连接器接入流程  
+5. 基础诊断与状态可见性  
+6. 初步的手机绑定路径  
+
+---
+
+## 适合谁使用
+
+### 重度用户
+已经在使用 OpenClaw，希望安装更轻松、状态更清晰、日常操作更顺手的人。
+
+### 构建者与技术型创作者
+希望通过结构化界面管理模型、连接器、模板和模式的人。
+
+### 开源贡献者
+希望通过代码、文档、交互设计、模板或连接器能力，帮助完善 OpenClaw 生态的人。
+
+---
+
+## 仓库当前结构
+
+```text
+.
+├─ docs/
+│  ├─ prd/
+│  └─ roadmap/
+├─ README.md
+├─ README.zh.md
+├─ LICENSE
+├─ CONTRIBUTING.md
+├─ CODE_OF_CONDUCT.md
+└─ SECURITY.md
