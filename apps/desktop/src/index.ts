@@ -2,30 +2,40 @@ import {
   createDesktopShellViewModel,
   DesktopShellViewModel,
 } from "./app/shell";
+
 import {
   createDashboardSummary,
   createDashboardViewModel,
   DashboardSummary,
   DashboardViewModel,
 } from "./app/dashboard";
+
 import {
   createSetupSummary,
   createSetupViewModel,
   SetupSummary,
   SetupViewModel,
 } from "./app/setup";
+
 import {
   createConnectorsSummary,
   createConnectorsViewModel,
   ConnectorsSummary,
   ConnectorsViewModel,
 } from "./app/connectors";
+
 import {
   createModesSummary,
   createModesViewModel,
   ModesSummary,
   ModesViewModel,
 } from "./app/modes";
+
+import {
+  createControlViewModel,
+  ControlViewModel,
+  ControlActionItem,
+} from "./app/control";
 
 export interface DesktopAppShellState {
   title: string;
@@ -52,6 +62,9 @@ export interface DesktopAppBootstrapResult {
     viewModel: ModesViewModel;
     summary: ModesSummary;
   };
+  control: {
+    viewModel: ControlViewModel;
+  };
   appState: DesktopAppShellState;
 }
 
@@ -76,6 +89,7 @@ export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
   const connectorsSummary = createConnectorsSummary();
   const modesViewModel = createModesViewModel();
   const modesSummary = createModesSummary();
+  const controlViewModel = createControlViewModel();
   const appState = createDesktopAppShellState();
 
   return {
@@ -95,6 +109,9 @@ export function bootstrapDesktopApp(): DesktopAppBootstrapResult {
     modes: {
       viewModel: modesViewModel,
       summary: modesSummary,
+    },
+    control: {
+      viewModel: controlViewModel,
     },
     appState,
   };
